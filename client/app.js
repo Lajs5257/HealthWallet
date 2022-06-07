@@ -105,6 +105,7 @@ App = {
       );
       console.log(result.logs[0].args);
       window.location.reload();
+      window.location.href = "/user.html";
     } catch (error) {
       console.error(error);
     }

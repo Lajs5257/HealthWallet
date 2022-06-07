@@ -21,9 +21,9 @@ if (pagina.title === "index") {
   //   location.replace('/Doctor.html');
   // });
 } else if (pagina.title === "user") {
-  console.log("hola");
+  //console.log("hola");
   App.init2();
-  console.log("holsdfsdfasa");
+  //console.log("holsdfsdfasa");
   // login.addEventListener("submit", (e) => {
   //   e.preventDefault();
   //   App.init();
@@ -31,7 +31,7 @@ if (pagina.title === "index") {
 
   // });
 } else if (pagina.title === "add") {
-  console.log("hola");
+  console.log("holasefds");
   App.init();
   const boton = document.querySelector("#addConsult");
   boton.addEventListener("click", (e) => {
@@ -51,6 +51,6 @@ if (pagina.title === "index") {
     const createdBy = localStorage.getItem("account");
     console.log("datos  " + title + "  " + description + "  " + createdBy);
     App.createRecord(title, description, createdBy);
-    location.replace("/User.html");
+    //location.replace("/User.html");
   });
 }
