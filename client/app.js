@@ -72,7 +72,7 @@ App = {
         if (taskCreatedBy === App.account) {
           // Creating a task Card
           let taskElement = `
-          <table class="table">
+          <table class="table table-bordered">
           <tbody>
         <tr>
           <th scope="row">${taskId}</th>
