@@ -2,7 +2,13 @@ body {
   background: #0A192F;
   color: #fff;
 }
-
+.search-pacient{
+  align-items: center;
+}
+#imgPacient {
+  width: 80%;
+  height: auto;
+}
 body{
   margin-top:20px;
   color: #1a202c;

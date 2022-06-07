@@ -72,14 +72,19 @@ App = {
         if (taskCreatedBy === App.account) {
           // Creating a task Card
           let taskElement = `
+          <table class="table">
+          <tbody>
         <tr>
-          <td scope="row">${taskId}</td>
+          <th scope="row">${taskId}</th>
           <td>${new Date(taskCreatedAt * 1000).toLocaleString()}</td>
           <td>${cita.name}</td>
           <td>${cita.diagnostic}</td>
           <td>${cita.treatment}</td>
           <td>${cita.comments}</td>
-          </td>`;
+        
+          </tr>
+          </tbody>
+          </table>`;
           
           html += taskElement;
         }
