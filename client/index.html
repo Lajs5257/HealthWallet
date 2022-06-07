@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TasksApp | DApp</title>
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./main.css" />
+    <!-- Google icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card card-body bg-dark rounded-0 mb-4">
+            <h1>
+              <span class="material-icons"> grid_view </span>
+              DTasksapp
+            </h1>
+            <h6 class="text-muted">Decentralize Tasks App</h6>
+            <div class="d-flex align-items-center">
+              <span class="material-icons"> account_balance_wallet </span>
+              <span class="ms-2">Wallet</span>
+            </div>
+            <span id="account"></span>
+          </div>
+
+          <form id="taskForm" class="card card-body bg-dark">
+            <h4>Save a Task</h4>
+            <input
+              type="text"
+              id="title"
+              class="form-control bg-dark border-0 rounded-0 text-light my-4"
+              placeholder="Write a Task"
+              autofocus
+            />
+            <textarea
+              id="description"
+              rows="2"
+              class="form-control bg-dark border-0 rounded-0 text-light my-4"
+              placeholder="I have to do ...."
+            ></textarea>
+            <button class="btn btn-primary">save</button>
+          </form>
+        </div>
+        <div class="col-md-8">
+          <div id="tasksList"></div>
+        </div>
+      </div>
+      <div>
+        <div class="container rounded bg-white mt-5 mb-5">
+          <br />
+          <br />
+          <h3 id="titulos">General Information</h3>
+          <p id="titulos">
+            General information about the patient to be treated.
+          </p>
+          <form id="formPerson" class="row g-3">
+            <div class="col-md-6">
+              <label for="validationDefault01" class="form-label"
+                >First name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                value=""
+                required
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="validationDefault02" class="form-label"
+                >Last name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                value=""
+                required
+              />
+            </div>
+            <div class="col-md-1">
+              <label for="validationDefault04" class="form-label">Day</label>
+              <select class="form-select" id="day" required>
+                <option selected disabled value="">Day</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="validationDefault04" class="form-label">Month</label>
+              <select class="form-select" id="month" >
+                <option selected disabled value="">Month</option>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+              </select>
+            </div>
+            <div class="col-md-1">
+              <label for="validationDefault04" class="form-label">Year</label>
+              <select class="form-select" id="year" >
+                <option selected disabled value="">Year</option>
+                <option>2022</option>
+                <option>2021</option>
+                <option>2020</option>
+                <option>2019</option>
+                <option>2018</option>
+                <option>2017</option>
+                <option>2016</option>
+                <option>2015</option>
+                <option>2014</option>
+                <option>2013</option>
+                <option>2012</option>
+                <option>2011</option>
+                <option>2010</option>
+                <option>2009</option>
+                <option>2008</option>
+                <option>2007</option>
+                <option>2006</option>
+                <option>2005</option>
+                <option>2004</option>
+                <option>2003</option>
+                <option>2002</option>
+                <option>2001</option>
+                <option>2000</option>
+                <option>1999</option>
+                <option>1998</option>
+                <option>1997</option>
+                <option>1996</option>
+                <option>1995</option>
+                <option>1994</option>
+                <option>1993</option>
+                <option>1992</option>
+                <option>1991</option>
+                <option>1990</option>
+                <option>1989</option>
+                <option>1988</option>
+                <option>1987</option>
+                <option>1986</option>
+                <option>1985</option>
+                <option>1984</option>
+                <option>1983</option>
+                <option>1982</option>
+                <option>1981</option>
+                <option>1980</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="validationDefault04" class="form-label">Sex</label>
+              <select class="form-select" id="sex" >
+                <option selected disabled value="">Sex</option>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="validationDefaultUsername" class="form-label"
+                >Email</label
+              >
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  aria-describedby="inputGroupPrepend2"
+                  
+                />
+              </div>
+            </div>
+            <div class="col-md-3">
+              <label for="validationDefault04" class="form-label"
+                >Country</label
+              >
+              <select class="form-select" id="country" >
+                <option selected disabled value="">Select</option>
+                <option>Mexico</option>
+                <option>US</option>
+              </select>
+              <br />
+              <br />
+            </div>
+
+            <h3 id="titulos">Private Data</h3>
+            <p id="titulos">
+              Private information about the patient's condition.
+            </p>
+            <div class="col-md-2">
+              <label for="validationDefault01" class="form-label"
+                >Weight e.g 68.2 kg</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="weight"
+                value=""
+                required
+              />
+            </div>
+            <div class="col-md-2">
+              <label for="validationDefault02" class="form-label"
+                >Height e.g 175 cm</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="height"
+                value=""
+                
+              />
+            </div>
+            <div class="col-md-2">
+              <label for="validationDefault04" class="form-label"
+                >Blood Type</label
+              >
+              <select class="form-select" id="blood" >
+                <option selected disabled value="">Select</option>
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>O+</option>
+                <option>O-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <h3 id="titulos">Allergies</h3>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Balsam of Peru"
+                  id="a1"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Balsam of Peru
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Buckwheat"
+                  id="a2"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  Buckwheat
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Egg"
+                  id="a3"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Egg
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Fish"
+                  id="a4"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  Fish
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Dog"
+                  id="a5"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Dog
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Cat"
+                  id="a6"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  Cat
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Latex"
+                  id="a7"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Latex
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Penicillin "
+                  id="a8"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  Penicillin
+                </label>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <h3 id="titulos">Diseases</h3>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Diabetes"
+                  id="d1"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Diabetes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Functional gastrointestinal disorder"
+                  id="d2"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  Functional gastrointestinal disorder
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Arthritis"
+                  id="d3"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Arthritis
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Asthma"
+                  id="d4"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  Asthma
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Cancer"
+                  id="d5"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Cancer
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Hepatitis C"
+                  id="d6"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  Hepatitis C
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Autoimmune diseases"
+                  id="d7"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Autoimmune diseases
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Chronic obstructive pulmonary disease"
+                  id="d8"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  Chronic obstructive pulmonary disease
+                </label>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <br />
+              <br />
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="agree"
+                  required
+                />
+                <label class="form-check-label" for="invalidCheck2">
+                  Agree to terms and conditions
+                </label>
+              </div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Submit</button>
+              <br />
+              <br />
+            </div>
+          </form>
+        </div>
+        <div class="col-md-8">
+          <div id="personList"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="/libs/web3/dist/web3.min.js"></script> -->
+    <script src="/libs/@truffle/contract/dist/truffle-contract.min.js"></script>
+    <script src="./app.js"></script>
+    <script src="./ui.js"></script>
+  </body>
+</html>
