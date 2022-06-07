@@ -5,13 +5,6 @@ App = {
     await App.loadAccount();
     await App.loadContract();
     await App.render();
-    //await App.renderTasks();
-  },
-  init2: async () => {
-    await App.loadWeb3();
-    await App.loadAccount();
-    await App.loadContract();
-    await App.render();
     await App.renderTasks();
   },
   loadWeb3: async () => {
@@ -31,7 +24,6 @@ App = {
       method: "eth_requestAccounts",
     });
     App.account = accounts[0];
-    localStorage.setItem("account", App.account);
   },
   loadContract: async () => {
     try {
@@ -46,7 +38,7 @@ App = {
     }
   },
   render: async () => {
-    //document.getElementById("account").innerText = App.account;
+    document.getElementById("account").innerText = App.account;
     console.log("Account: " + App.account);
   },
   renderTasks: async () => {
@@ -54,10 +46,9 @@ App = {
     const recordCounterNumber = recordsCounter.toNumber();
 
     let html = "";
-    console.log("RecordsCounter: " + recordCounterNumber);
+
     for (let i = 1; i <= recordCounterNumber; i++) {
       const task = await App.RecordsContract.records(i);
-      console.log(i);
       console.log(task);
       const taskId = task[0].toNumber();
       const taskTitle = task[1];
@@ -65,28 +56,33 @@ App = {
       const taskDone = task[3];
       const taskCreatedAt = task[5];
       const taskCreatedBy = task[4];
-      try {
-        const cita = JSON.parse(taskDescription);
-        console.log("Account actual: " + App.account);
-        console.log("Account recuperada: " + taskCreatedBy);
-        if (taskCreatedBy === App.account) {
-          // Creating a task Card
-          let taskElement = `
-        <tr>
-          <td scope="row">${taskId}</td>
-          <td>${new Date(taskCreatedAt * 1000).toLocaleString()}</td>
-          <td>${cita.name}</td>
-          <td>${cita.diagnostic}</td>
-          <td>${cita.treatment}</td>
-          <td>${cita.comments}</td>
-          </td>`;
-          
-          html += taskElement;
-        }
-      } catch (error) {}
-
-      document.querySelector("#tablaUser").innerHTML = html;
+      console.log("Account actual: " + App.account);
+      console.log("Account recuperada: " + taskCreatedBy);
+      if (taskCreatedBy === App.account) {
+        // Creating a task Card
+        let taskElement = `<div class="card bg-dark rounded-0 mb-2">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <span>${taskTitle}</span>
+          <div class="form-check form-switch">
+            <input class="form-check-input" data-id="${taskId}" type="checkbox" onchange="App.toggleDone(this)" ${
+          taskDone === true && "checked"
+        }>
+          </div>
+        </div>
+        <div class="card-body">
+          <span>${taskDescription}</span>
+          <span>${taskDone}</span>
+          <p class="text-muted">Task was created ${new Date(
+            taskCreatedAt * 1000
+          ).toLocaleString()}</p>
+          </label>
+        </div>
+      </div>`;
+        html += taskElement;
+      }
+      document.querySelector("#tasksList").innerHTML = html;
     }
+    
   },
   createRecord: async (title, description) => {
     try {
